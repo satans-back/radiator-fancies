@@ -4,6 +4,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const { joinUser, removeUser, updateRoom, getCurrentRoom } = require('./users');
 let path = require('path');
+var port = process.env.PORT || 3000;
 
 
 var indexRouter = require('./routes/index');
@@ -51,7 +52,7 @@ io.sockets.on('connection', function(socket) {
 
 });
 
-const server = http.listen(8080, function() {
+const server = http.listen(port, function() {
     console.log('listening on *:8080');
 });
 
