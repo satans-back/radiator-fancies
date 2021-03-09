@@ -6,7 +6,7 @@
     'room-canal'
 */
 
-let socket = io.connect('http://localhost:8080');
+let socket = io.connect('https://radiator-app.azurewebsites.net');
 
 let username = "";
 let ID = "";
