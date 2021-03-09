@@ -13,10 +13,14 @@
   color: #f75e24;
 }
 
+.mdc-drawer-app-content {
+  flex-grow: 100;
+}
+
 /* CUSTOM */
 
 html {
-  overflow: hidden;
+
 }
 
 body {
@@ -24,6 +28,8 @@ body {
   background-color: #7a7a7a;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  display: flex;
 }
 
 fieldset {
@@ -42,8 +48,7 @@ h6 {
   font-family: 'Roboto';
   font-weight: medium;
   font-size: 20px;
-  margin: 0;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
 h5 {
@@ -134,10 +139,22 @@ p.chat-message-content {
   top: 6px;
 }
 
+#main-div {
+  overflow: auto;
+  height: 100%;
+}
+
+#login-error {
+  color: #8a0000;
+  font-size: 12px;
+  margin-top: -5px;
+  display: none;
+}
+
 #nav-draw {
   min-height: 100vh;
-  float: left;
   background-color: #EBEBEB;
+  padding-top: 64px;
 }
 
 #logo-main {
@@ -162,9 +179,10 @@ p.chat-message-content {
   width: 100%;
   height: 100vh;
   background:black;
-  background:rgba(0,0,0,0.1);
   opacity: 0.5;
-  z-index: 10000;
+  z-index: 1000;
+  margin: 0 0 0 0;
+  position: fixed;
 }
 
 #login-field {
@@ -180,11 +198,9 @@ p.chat-message-content {
 }
 
 #chat {
-  width: auto;
-  overflow: hidden;
   background-color: #EBEBEB;
-  min-height: 100vh;
-  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 #message-field {
@@ -207,7 +223,12 @@ p.chat-message-content {
 
 #messages {
   list-style: none;
+  margin: 0;
+  padding-top: 15px;
+  overflow-y: scroll;
+  height: calc(100% - 140px);
 }
+
 
 #messages li {
   min-height: 65px;
@@ -216,4 +237,8 @@ p.chat-message-content {
 #send-bttn {
   right: 23px;
   bottom: 27px;
+}
+
+#top-bar {
+  z-index: 100;
 }

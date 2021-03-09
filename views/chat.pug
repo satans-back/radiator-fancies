@@ -6,13 +6,10 @@ append head
   script(src='http://code.jquery.com/jquery-1.10.1.min.js')
 block content
   div#login-bg
-  header.mdc-top-app-bar
+  header#top-bar.mdc-top-app-bar
     .mdc-top-app-bar__row
       section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
         span#welcme-header.mdc-top-app-bar__title radiator
-        section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end(role='toolbar')
-          button.material-icons.mdc-top-app-bar__action-item.mdc-icon-button(aria-label='Options') more_vert
-  main.mdc-top-app-bar--fixed-adjust
   aside#nav-draw.mdc-drawer
     .mdc-drawer__content
       h5.section-title chat rooms
@@ -37,16 +34,17 @@ block content
           span.mdc-list-item__ripple
           i.material-icons.mdc-list-item__graphic(aria-hidden='true') arrow_circle_down
           span.mdc-list-item__text canal
-        button(type="submit" form="chatForm")
-  div#chat
-    ol#messages(reversed='')
-    div#message-div
-      label#message-field.mdc-text-field.mdc-text-field--filled.mdc-text-field--textarea.mdc-text-field--no-label
-        span.mdc-text-field__ripple
-        form(action='/' method='POST' id='chatForm')
-          input#txt.mdc-text-field__input(aria-label='Label')
-        script(src='/javascripts/socket_js.js')
-        span.mdc-line-ripple
+  div.mdc-drawer-app-content.mdc-top-app-bar--fixed-adjust
+    main#main-div.main-content
+      div#chat
+        ol#messages(reversed='')
+        div#message-div
+          label#message-field.mdc-text-field.mdc-text-field--filled.mdc-text-field--textarea.mdc-text-field--no-label
+            span.mdc-text-field__ripple
+            form(action='/' method='POST' id='chatForm')
+              input#txt.mdc-text-field__input(aria-label='Label')
+            script(src='/javascripts/socket_js.js')
+            span.mdc-line-ripple
   div#login-card.modal.mdc-card.mdc-card--outlined
     img#logo-main(src="images/logo-light.png")
     label#login-field.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label
@@ -54,5 +52,6 @@ block content
       i.material-icons.mdc-text-field__icon.mdc-text-field__icon--trailing(tabindex='0' role='button') face
       input#nick.mdc-text-field__input(type='text' placeholder='nick' aria-label='Label' name='nick')
       span.mdc-line-ripple
+    p#login-error Login must contain at least 5 characters.
     button#login-button.mdc-button.mdc-button--raised(onclick="chatLogin()")
       span.mdc-button__label CHAT

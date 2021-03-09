@@ -11,9 +11,15 @@ let socket = io.connect('http://localhost:8080');
 let username = "";
 let ID = "";
 let room = 'room-iron';
-
-function chatLogin() {
+let new_room = '';
+function chatLogin(){
     username = document.getElementById("nick").value;
+    if(username.length < 5){
+        let err = document.getElementById("login-error");
+        err.style.display = "block";
+        return;
+    }
+
     let card = document.getElementById("login-card");
     let bg = document.getElementById("login-bg");
 
@@ -24,8 +30,10 @@ function chatLogin() {
 
 function changeRoom(ROOM_ID) {
     document.getElementById(room).classList.remove('mdc-list-item--activated');
+    socket.emit('leave', {room: room, new_room: ROOM_ID});
     room = ROOM_ID;
     document.getElementById(room).classList.add('mdc-list-item--activated');
+    document.getElementById("messages").innerHTML = "";
 }
 
 $('form').submit(function(e){
@@ -44,10 +52,6 @@ socket.on('chat_message', (data) => {
 
 socket.on('send data', (message) => {
     ID = message.id;
-});
-
-socket.on('leave room', (data) => {
-   console.log("USER LEFT CZAT");
 });
 
 function displayMessage(data) {
@@ -78,4 +82,6 @@ function displayMessage(data) {
     messages_li.appendChild(msg_div);
 
     $('#messages').append(messages_li);
+    $("#messages").stop().animate({ scrollTop: $("#messages")[0].scrollHeight}, 1000);
+
 }
