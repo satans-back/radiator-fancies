@@ -37,19 +37,14 @@ function changeRoom(ROOM_ID) {
     document.getElementById("messages").innerHTML = "";
 }
 
-$("#txt").keydown(function(e){
-    if(e.which === 13)
-    {
-        e.preventDefault(); // prevents page reloading
-        console.log("SEND MESSAGE CLICKED");
-        socket.emit('chat_message', {
-            value: document.getElementById("txt").value,
-            user: username
-        });
-        $('#txt').val('');
-        return false;
-    }
-});
+function buttonClicked() {
+    console.log("SEND MESSAGE CLICKED");
+    socket.emit('chat_message', {
+        value: document.getElementById("txt").value,
+        user: username
+    });
+    $('#txt').val('');
+}
 
 socket.on('chat_message', (data) => {
     displayMessage(data);
