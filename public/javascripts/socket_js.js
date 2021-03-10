@@ -93,6 +93,6 @@ function displayMessage(data) {
     msg_div.appendChild(message_p);
     messages_li.appendChild(msg_div);
 
-    //$('#messages').append(messages_li);
     document.querySelector('#messages').appendChild(messages_li);
+    $("#messages").stop().animate({ scrollTop: $("#messages")[0].scrollHeight}, 1000);
 }
