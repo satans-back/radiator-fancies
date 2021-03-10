@@ -18,8 +18,6 @@ app.use('/', indexRouter);
 
 let thisRoom="";
 
-io.set('transports', ['websocket']);
-
 io.sockets.on('connection', function(socket) {
     socket.on('join room', (data) => {
         let newUser = joinUser(socket.id, data.username, data.roomName)

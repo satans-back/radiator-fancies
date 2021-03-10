@@ -6,7 +6,7 @@
     'room-canal'
 */
 
-let socket = io({transports: ['websocket']});
+let socket = io();
 
 let username = "";
 let ID = "";
