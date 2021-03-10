@@ -36,8 +36,9 @@ function changeRoom(ROOM_ID) {
     document.getElementById("messages").innerHTML = "";
 }
 
-$('form').submit(function(e){
+$('#form').submit(function(e){
     e.preventDefault(); // prevents page reloading
+    console.log("SEND MESSAGE CLICKED");
     socket.emit('chat_message', {
         value: document.getElementById("txt").value,
         user: username
