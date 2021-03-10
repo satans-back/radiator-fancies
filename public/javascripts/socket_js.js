@@ -46,6 +46,18 @@ function buttonClicked() {
     document.getElementById("txt").value = '';
 }
 
+document.getElementById("txt").addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        console.log("SEND MESSAGE CLICKED");
+        socket.emit('chat_message', {
+            value: document.getElementById("txt").value,
+            user: username
+        });
+        document.getElementById("txt").value = '';
+    }
+});
+
 socket.on('chat_message', (data) => {
     displayMessage(data);
 });
@@ -83,5 +95,4 @@ function displayMessage(data) {
 
     //$('#messages').append(messages_li);
     document.querySelector('#messages').appendChild(messages_li);
-
 }

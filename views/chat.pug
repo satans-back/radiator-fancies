@@ -1,6 +1,5 @@
 extends layout
 append head
-  script(src='/javascripts/chatroom.js')
   script(src='../../socket.io/socket.io.js')
 block content
   div#login-bg
@@ -32,7 +31,6 @@ block content
           span.mdc-list-item__ripple
           i.material-icons.mdc-list-item__graphic(aria-hidden='true') arrow_circle_down
           span.mdc-list-item__text canal
-        button(onclick="buttonClicked();")
   div.mdc-drawer-app-content.mdc-top-app-bar--fixed-adjust
     main#main-div.main-content
       div#chat
