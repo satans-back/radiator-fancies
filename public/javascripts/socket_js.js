@@ -7,6 +7,7 @@
 */
 
 let socket = io.connect('https://radiator-app.azurewebsites.net');
+//let socket = io.connect('localhost:3000');
 
 let username = "";
 let ID = "";
@@ -36,7 +37,7 @@ function changeRoom(ROOM_ID) {
     document.getElementById("messages").innerHTML = "";
 }
 
-$('#form').submit(function(e){
+$('#chatForm').submit(function(e){
     e.preventDefault(); // prevents page reloading
     console.log("SEND MESSAGE CLICKED");
     socket.emit('chat_message', {
