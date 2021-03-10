@@ -94,5 +94,4 @@ function displayMessage(data) {
     messages_li.appendChild(msg_div);
 
     document.querySelector('#messages').appendChild(messages_li);
-    $("#messages").stop().animate({ scrollTop: $("#messages")[0].scrollHeight}, 1000);
 }
