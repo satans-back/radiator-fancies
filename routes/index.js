@@ -5,8 +5,8 @@ router.get('/', function(req, res, next) {
     res.render('chat', { title: 'radiator' });
 });
 
-router.get('/chat', function(req, res, next) {
-    res.render('room', { title: 'radiator' });
+router.post('/chat', function(req, res, next) {
+    console.log("CHAT MESSAGE:");
 });
 
 module.exports = router;
