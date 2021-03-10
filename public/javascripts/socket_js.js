@@ -43,7 +43,7 @@ function buttonClicked() {
         value: document.getElementById("txt").value,
         user: username
     });
-    $('#txt').val('');
+    document.getElementById("txt").value = '';
 }
 
 socket.on('chat_message', (data) => {
@@ -81,7 +81,7 @@ function displayMessage(data) {
     msg_div.appendChild(message_p);
     messages_li.appendChild(msg_div);
 
-    $('#messages').append(messages_li);
-    $("#messages").stop().animate({ scrollTop: $("#messages")[0].scrollHeight}, 1000);
+    //$('#messages').append(messages_li);
+    document.querySelector('#messages').appendChild(messages_li);
 
 }
