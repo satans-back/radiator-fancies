@@ -18,6 +18,8 @@ app.use('/', indexRouter);
 
 let thisRoom="";
 
+console.log("Connection to server is quite stable.")
+
 io.sockets.on('connection', function(socket) {
     socket.on('join room', (data) => {
         let newUser = joinUser(socket.id, data.username, data.roomName)
